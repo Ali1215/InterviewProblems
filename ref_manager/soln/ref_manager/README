@@ -1,0 +1,22 @@
+Name: Ali Muneer
+Student ID: 1615694
+CMPUT 275; Winter 2021
+Weekly Exercise 3: Reference Manager
+
+The files "ref_manager.cpp" and "ref_manager.h" create a basic reference manager. Several pointer to strings that are stored in heap are put into an array. If any address has 0 pointers pointing towards it, it is added to a garbage array to free the memory the next time garbageCollect() is called.
+
+To compile this program, first run "make" and then run ./we3_solution.
+
+It can take several queries.
+
+c <pointer_index_to_replace> <length_of_string> <string>
+This will replace a pointer in the pointer array to a new pointer, pointing to the inputted string.
+
+p <pointer1_index> <pointer2_index>
+This will make pointer1 now point to the memory address that pointer2 is pointing to.
+
+q <pointer_index>
+This will print the string that the pointer at "pointer_index" is pointing to.
+
+e
+This will exit the program.

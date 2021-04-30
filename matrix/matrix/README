@@ -1,0 +1,22 @@
+Name: Ali Muneer
+Student ID: 1615694
+CMPUT 275; Winter 2021
+Weekly Exercise 4: Matrix
+
+The files matrix.cpp and matrix.h creates a matrix class capable of storing a 2d array. It has several class methods that are able to be used by the user.
+
+To make a new matrix, declare a class of type matrix with the parameters being (number_of_rows, number_of_columns, initial_value(s)). This initial_value(s) can either be one float which will initialize all values of the matrix to that float, or a 1d array of floats which will occupy the matrix row-by-row. This 1d array must be of size (number_of_rows* number_of_columns).
+
+Optionally, a copy of a Matrix can be created where instead the only argument of the contructor is a matrix.
+
+If arithmetic operators are applied to two matrixes, they will function as normal matrix arithmetic.
+
+An element within the matrix can be referenced and updated using the syntax A[i][j], where A is a matrix class, i is the row number, and j is the column number of the element.
+
+There is also a transpose() function, which returns a transpose of the matrix it is applied on. There is also a submatrix function which returns a cut matrix from the matrix it is applied on. The arguments of this function is (row_start, row_end, column_start, column_end). 
+
+If the matrix is extracted from istream, the elements will be inputted row-by-row and similarily if it is inserted into ostream it will be outputted row-by-row.
+
+
+The choice to treat all the arguments as "const" for all class member functions is none of the arguments are altered in any of the functions. Similarily most class methods are delcared as const as well, since they do not change class attributes. The only exception to this is if [] is called on a non-const matrix, as this will give the user ability to change specific elements of the matrix. 
+

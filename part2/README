@@ -1,0 +1,36 @@
+Name: Ali Muneer
+Student ID: 1615694
+CMPUT 275; Winter 2021
+Assignment 1 Part 2
+
+This program builds off of the previous iteration of the server built in the first Assignment. The server has been modified to instead send/recieve its output/input via sockets. A client can send it a request in the format: R,<start_lattitude*100000>,<start_longitude*100000>,<end_lattitude*100000>,<end_longitude*100000> once it has established a connection. Then server responds to the client first with the amount of vertices between the start and end point, then a list of lattitudes and longitudes as waypoints. Each message it sends to the client requires acknowledgment from the client in the form of "A" on the socket.
+
+A client has also been created that is able to send start and end setpoints, and recieve waypoints from the server. It sends acknowledgement to the server after every message recieved. An interactive UI was provided that is able to send and recieve points from the client through the use of two pipes. When two points on the plotter are selected, they are sent to the client via a pipe. These setpoints are then sent to the server after they are converted to the number format that is used within the server. After dijkstra's algorithm is run server-side, the waypoints are sent back one by one. The client then modifies this back to the format accepted by the plotter, and then sends it back to the plotter via pipe for the results to be seen.
+
+
+To compile the code, run: make.
+The Makefile has several targets:
+
+all: the main target that depends on the "server" and "client" targets
+server: the target that creates an executable called "server", depends on "server.o", "digraph.o" and "dijkstra.o"
+server.o: the target that compiles the server.cpp file to create an object file, depends on all other files within the folder
+digraph.o: the target that compiles the digraph.cpp file to create an object file (depends on digraph.h as well)
+dijkstra.o: the target that compiles the dijkstra.cpp file to create an object file (depends on dijkstra.h as well)
+
+client: the target that creates an executable called "client", depends on "client.o"
+client.o: the target that compiles client.cpp
+clean: removes all object files and the two executables, as well as the pipes.
+
+To run the code run in separate terminals (from the parent directory of this folder):
+
+1. cd server && ./server [PORT]
+2. ./client/client [PORT] [IP_ADDRESS_OF_SERVER]
+3. ./plotter
+
+note: if the client and server are running on the same computer, the ip address is 127.0.0.1 (localhost)
+
+Assumptions:
+*contains a file named "edmonton-roads-2.0.1.txt" in the same directory as where the server executable is executed
+*no pipes named "inpipe" and "outpipe" already exist in the same working directory as where the client is executed
+*the client is executed from the same working directory as the plotter
+*this program was developed using the OLD plotter, with two messages sent separately

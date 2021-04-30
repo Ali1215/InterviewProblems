@@ -1,0 +1,17 @@
+Name: Ali Muneer
+Student ID: 1615694
+CMPUT 275; Winter 2021
+Weekly Exercise 5: Dynamic Hashing
+
+The files dynarray.h and linked_list.h contain the implementations of a dynamic array and a linked list respectively. Together these objects are used to make a hash_table in hash_table.h
+
+The newest addition to this file is the ability for the hash table to be dynamically resized as elements are being added/removed from them. If the table becomes saturated to the point of the number of buckets equalling the number of elements in the table, then the size of the table will be doubled. Similarily, if the number of table elements fall below 1/4 of the table size, the table will either be shrunk to 10 buckets, or 1/2 of the previous size (whichever is bigger).
+
+To run the code, run ./exercise5
+
+This will run a driver meant to utilize the hash_table. 
+To input an element into the hash table, input "I <number>" with the number being any arbritary number.
+To print the number of elements in the hash table, input "S"
+To check if the hash table has an element, input "Q <number>"
+To remove an element from the hash table, input "R <number>"
+

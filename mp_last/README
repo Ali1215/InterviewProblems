@@ -1,0 +1,23 @@
+Name: Ali Muneer
+Student ID: 1615694
+CMPUT 275; Winter 2021
+Weekly Exercise 7: Divide and Conquer
+
+The file climbing.cpp contains the implementation of a binary search algorithm that can find the lowest value a climber needs to climb before taking rest, to climb a mountain in a given time limit. The climbing function takes in 4 arguments:
+
+uint climbing(const uint *heights, uint length, uint rest, uint limit);
+
+The first is an array of heights, representing the heights of the cliffs the climber needs to scale. It is assumed that the heights will be strictly increasing. The next argument is the length of the array, or the amount of cliffs on the mountain. The next argument is the allowed rest time the climber is allowed to make after they make the determined "jump". The last argument is the time limit that the climber must climb to the top of the mountain within.
+
+The driver.cpp is the included driver file. It calls the climbing function with different arguments and checks it against expected values.
+
+To run and compile the code run:
+
+make
+./climbing
+
+The Makefile has several targets which are:
+– climbing: links climbing.o and driver.o object files and builds an executable called climbing. Depends on the climbing.o and driver.o make targets.
+– climbing.o: compiles climbing.cpp.
+– driver.o: compiles driver.cpp.
+– clean: removes all executable and object files.
